@@ -4,8 +4,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent } from "react";
 export function SearchForm() {
   const router = useRouter();
+
   const searchParams = useSearchParams();
+
   const query = searchParams.get("q");
+
   function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);

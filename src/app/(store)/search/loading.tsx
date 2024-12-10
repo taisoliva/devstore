@@ -1,7 +1,8 @@
 "use client";
 import { Skeleton } from "@/components/skeleton";
 import { useSearchParams } from "next/navigation";
-export default function SearchLoading() {
+import { Suspense } from "react";
+function SearchLoading() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q");
   return (
@@ -18,5 +19,13 @@ export default function SearchLoading() {
         <Skeleton className="h-[400px]" />
       </div>
     </div>
+  );
+}
+
+export default function Loading() {
+  return (
+    <Suspense>
+      <SearchLoading />
+    </Suspense>
   );
 }
